@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">easy-recyclerview</string>
+    <string name="empty_list">Lista Vazia</string>
+</resources>
