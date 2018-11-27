@@ -9,8 +9,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val names = listOf("Pedro", "Luatane", "João Pedro", "José")
-    private val click = { name: String, index: Int -> showToast(name, index) }
+    private val names = listOf("Pedro", "Luatane", "João Pedro", "José").sortedBy { it }
+    private val click = { name: String, index: Int -> onClickItem(name, index) }
     private val adapter by lazy { AdapterString(click) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,12 +21,12 @@ class MainActivity : AppCompatActivity() {
         recyclerView.setCustomAdapter(adapter)
     }
 
-    private fun showToast(name: String, index: Int) {
+    private fun onClickItem(name: String, index: Int) {
         AlertDialog.Builder(this)
-                .setTitle(name)
-                .setMessage("Clicked in position $index")
-                .setCancelable(false)
-                .setPositiveButton(getString(android.R.string.ok)) { dialog, _ -> dialog?.dismiss() }
-                .show()
+            .setTitle(name)
+            .setMessage("Clicked in position $index")
+            .setCancelable(false)
+            .setPositiveButton(getString(android.R.string.ok)) { dialog, _ -> dialog?.dismiss() }
+            .show()
     }
 }
