@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="sample_names">
-        <item>Pedro</item>
-        <item>Luatane</item>
-        <item>João Pedro</item>
-        <item>José</item>
-    </string-array>
-</resources>

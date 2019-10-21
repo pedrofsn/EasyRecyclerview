@@ -1,4 +1,3 @@
 <resources>
     <string name="app_name">Sample</string>
-    <string name="clicked_d">Clicked in positions %d</string>
 </resources>
