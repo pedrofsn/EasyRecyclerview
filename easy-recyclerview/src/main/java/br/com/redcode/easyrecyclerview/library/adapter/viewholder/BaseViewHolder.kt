@@ -12,9 +12,9 @@ abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemV
     abstract fun populate(obj: T)
 
     open fun populate(
-            obj: T,
-            click: ((T, Int) -> Unit)?,
-            clickRow: Boolean = true
+        obj: T,
+        click: ((T, Int) -> Unit)?,
+        clickRow: Boolean = true
     ) {
         if (obj != null) {
             populate(obj)
@@ -26,9 +26,9 @@ abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemV
     }
 
     fun clickIn(
-            view: View,
-            obj: T,
-            click: ((T, Int) -> Unit)?
+        view: View,
+        obj: T,
+        click: ((T, Int) -> Unit)?
     ) {
         if (click != null) {
             view.setOnClickListener { click.invoke(obj, adapterPosition) }

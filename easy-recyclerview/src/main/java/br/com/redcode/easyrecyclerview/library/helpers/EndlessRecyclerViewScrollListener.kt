@@ -11,18 +11,24 @@ import br.com.redcode.easyrecyclerview.library.domain.EndlessRecyclerView
  * Created by pedrofsn on 08/01/18.
  */
 
-abstract class EndlessRecyclerViewScrollListener : RecyclerView.OnScrollListener, EndlessRecyclerView {
+abstract class EndlessRecyclerViewScrollListener : RecyclerView.OnScrollListener,
+    EndlessRecyclerView {
 
     internal var mLayoutManager: RecyclerView.LayoutManager
+
     // The minimum amount of items to have below your current scroll position
     // before loading more.
     private var visibleThreshold = 5
+
     // The current offset index of data you have loaded
     private var currentPage = 0
+
     // The total number of items in the dataset after the last load
     private var previousTotalItemCount = 0
+
     // True if we are still waiting for the last set of data to load.
     private var loading = true
+
     // Sets the starting page index
     private val startingPageIndex = 0
 
@@ -61,13 +67,15 @@ abstract class EndlessRecyclerViewScrollListener : RecyclerView.OnScrollListener
 
         if (mLayoutManager is StaggeredGridLayoutManager) {
             val lastVisibleItemPositions =
-                    (mLayoutManager as StaggeredGridLayoutManager).findLastVisibleItemPositions(null)
+                (mLayoutManager as StaggeredGridLayoutManager).findLastVisibleItemPositions(null)
             // get maximum element within the list
             lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions)
         } else if (mLayoutManager is GridLayoutManager) {
-            lastVisibleItemPosition = (mLayoutManager as GridLayoutManager).findLastVisibleItemPosition()
+            lastVisibleItemPosition =
+                (mLayoutManager as GridLayoutManager).findLastVisibleItemPosition()
         } else if (mLayoutManager is LinearLayoutManager) {
-            lastVisibleItemPosition = (mLayoutManager as LinearLayoutManager).findLastVisibleItemPosition()
+            lastVisibleItemPosition =
+                (mLayoutManager as LinearLayoutManager).findLastVisibleItemPosition()
         }
 
         // If the total item count is zero and the previous isn't, assume the

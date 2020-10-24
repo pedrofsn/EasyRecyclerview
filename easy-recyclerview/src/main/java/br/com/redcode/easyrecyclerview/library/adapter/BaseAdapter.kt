@@ -12,7 +12,7 @@ import java.util.*
  * Created by pedrofsn on 16/10/2017.
  */
 abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(val filterable: ((T, query: String) -> Boolean)? = null) :
-        RecyclerView.Adapter<VH>() {
+    RecyclerView.Adapter<VH>() {
 
     abstract var click: ((T, Int) -> Unit)?
     private val original = arrayListOf<T>()
@@ -30,9 +30,9 @@ abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(val filterable: ((T, query
     abstract fun getViewHolder(view: View): VH
 
     override fun onBindViewHolder(holder: VH, position: Int) = holder.populate(
-            obj = getLista()[position],
-            click = click,
-            clickRow = clickRow
+        obj = getLista()[position],
+        click = click,
+        clickRow = clickRow
 //            , custom = any
     )
 

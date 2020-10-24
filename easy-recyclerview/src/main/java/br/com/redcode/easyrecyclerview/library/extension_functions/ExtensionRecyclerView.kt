@@ -12,10 +12,10 @@ import br.com.redcode.easyrecyclerview.library.separators.MyDividerItemDecorator
  * Created by pedrofsn on 24/11/2017.
  */
 fun RecyclerView.setCustomAdapter(
-        adapter: RecyclerView.Adapter<*>,
-        layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context),
-        divider: Boolean = false,
-        xmlDivider: Boolean = false
+    adapter: RecyclerView.Adapter<*>,
+    layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context),
+    divider: Boolean = false,
+    xmlDivider: Boolean = false
 ) {
     setLayoutManager(layoutManager)
     setAdapter(adapter)
@@ -49,23 +49,24 @@ fun RecyclerView.handleNestedScrolling() {
 }
 
 fun RecyclerView.handlePagination(
-        clearDataApdater: () -> Unit,
-        updatePage: (actualPage: Int) -> Unit,
-        layoutManager: LinearLayoutManager,
-        loadMore: () -> Unit
+    clearDataApdater: () -> Unit,
+    updatePage: (actualPage: Int) -> Unit,
+    layoutManager: LinearLayoutManager,
+    loadMore: () -> Unit
 ): EndlessRecyclerViewScrollListener {
-    val scrollListener: EndlessRecyclerViewScrollListener = object : EndlessRecyclerViewScrollListener(layoutManager) {
-        override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
-            updatePage.invoke(page)
-            loadMore.invoke()
-        }
+    val scrollListener: EndlessRecyclerViewScrollListener =
+        object : EndlessRecyclerViewScrollListener(layoutManager) {
+            override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
+                updatePage.invoke(page)
+                loadMore.invoke()
+            }
 
-        override fun resetState() {
-            super.resetState()
-            updatePage.invoke(0)
-            clearDataApdater.invoke()
+            override fun resetState() {
+                super.resetState()
+                updatePage.invoke(0)
+                clearDataApdater.invoke()
+            }
         }
-    }
 
     addOnScrollListener(scrollListener)
 

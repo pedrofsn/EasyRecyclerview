@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val items = resources.getStringArray(R.array.sample_names)
-        val names:ArrayList<String> = ArrayList()
+        val names: ArrayList<String> = ArrayList()
         names.addAll(items)
 
         adapter.setCustomList(names)

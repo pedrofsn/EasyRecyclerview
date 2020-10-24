@@ -9,7 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
  */
 class SpacingCenterizedBetweenTwoCollumns(val spacing: Int = 15) : RecyclerView.ItemDecoration() {
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
         val position = parent.getChildAdapterPosition(view)
 
         if (position >= 0) {
