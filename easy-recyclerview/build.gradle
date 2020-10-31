@@ -20,7 +20,6 @@ android {
             debuggable true
             minifyEnabled false
             shrinkResources false
-            useProguard false
         }
 
         release {
