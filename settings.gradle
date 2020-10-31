@@ -1,1 +1,2 @@
+include ':mvvm'
 include ':app',':easy-recyclerview'
